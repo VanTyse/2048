@@ -233,11 +233,11 @@ function setUpTouchInput(grid, gameBoard, history){
         startY = touchObj.pageY;
         startTime = Number(new Date().getTime()); //at this point I'm not certain if getTime() returns a number
         e.preventDefault()
-    }, false)
+    }, {once : true, capture : false})
 
     gameBoard.addEventListener('touchmove', (e) => {
         e.preventDefault()
-    }, false)
+    }, {once : true, capture : false})
 
     gameBoard.addEventListener('touchend', (e) => {
         const touchObj = e.changedTouches[0];
@@ -275,7 +275,7 @@ function setUpTouchInput(grid, gameBoard, history){
             handleTouchInput('down', grid, gameBoard, history)
             return
         }
-    }, false)
+    }, {once : true, capture : false})
 
 }
 
