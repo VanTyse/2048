@@ -250,6 +250,7 @@ function setUpTouchInput(grid, gameBoard, history){
     // checking for right movement
 
     if ((elapsedTime <= allowedTime) && (distX <= distThreshold) && (Math.abs(distY < 60))){
+        alert('right')
         handleTouchInput('right', grid, gameBoard, history)
         return
     }
@@ -257,6 +258,7 @@ function setUpTouchInput(grid, gameBoard, history){
     // checking for left movement
 
     if ((elapsedTime <= allowedTime) && (-distX <= distThreshold) && (Math.abs(distY < 60))){
+        alert('left')
         handleTouchInput('left', grid, gameBoard, history)
         return
     }
@@ -264,6 +266,7 @@ function setUpTouchInput(grid, gameBoard, history){
     // checking for up movement
 
     if ((elapsedTime <= allowedTime) && (-distY <= distThreshold) && (Math.abs(distX < 60))){
+        alert('up')
         handleTouchInput('up', grid, gameBoard, history)
         return
     }
@@ -271,6 +274,7 @@ function setUpTouchInput(grid, gameBoard, history){
     // checking for down movement
 
     if ((elapsedTime <= allowedTime) && (distY <= distThreshold) && (Math.abs(distX < 60))){
+        alert('down')
         handleTouchInput('down', grid, gameBoard, history)
         return
     }
