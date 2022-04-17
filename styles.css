@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #121212;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav{
+    max-width: 80%;
+    margin: auto;
+    background-color: #282828;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4vmin;
+}
+
+.menu{
+    min-width: 70px;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: antiquewhite;
+    font-size: 24px;
+}
+
+.nav-logo{
+    color: antiquewhite;
+    font-size: 30px;
+    width: 15%;
+}
+
+.app-name{
+    color: antiquewhite;
+    font-size: 27px;
+    width: 10%;
+}
+
+.nav-logo:hover{
+    cursor: pointer;
+}
+
+.settings:hover, .stats:hover{
+    cursor: pointer;
+}
+
+.score{
+    color: antiquewhite;
+}
+
+.game-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : calc(100vh - 105px)
+}
+
+.inner-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.undo-btn{
+    padding: 10px 15px;
+    background-color: #282828;
+    color: antiquewhite;
+    border: none;
+    font-size: 18px;
+}
+
+.undo-btn:active{
+    transform: scale(0.8);
+}
+
+.undo-btn:hover{
+    cursor: pointer;
+}
+
+#game-board{
+    background-color: #333;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+    grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+    padding: var(--cell-gap);
+    gap: var(--cell-gap);
+    position: relative;
+}
+
+.cell{
+    background-color: #555;
+    border-radius: 1vmin;
+}
+
+.tile{
+    position: absolute;
+    font-weight: bold;
+    font-size: 8vmin;
+    color: hsl(120, 25%, var(--text-lightness));
+    background-color: hsl(0, 50%, var(--background-lightness));
+    width: var(--cell-size);
+    height: var(--cell-size);
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1vmin;
+    top: calc((var(--y) * var(--cell-size)) + (var(--cell-gap) * (var(--y) + 1)));
+    left: calc((var(--x) * var(--cell-size)) + (var(--cell-gap) * (var(--x) + 1)));
+    transition: all .2s ease-in-out;
+    animation : appear .2s ease-in forwards;
+}
+
+@keyframes appear {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
