@@ -224,7 +224,7 @@ function setScore(grid){
 }
 
 function setUpTouchInput(grid, gameBoard, history){
-    let startX, startY, endX, endY, distX = 0, distY = 0, startTime, endTime, elapsedTime, allowedTime = 200, distThreshold = 150
+    let startX, startY, endX, endY, distX = 0, distY = 0, startTime, endTime, elapsedTime, allowedTime = 130, distThreshold = 100
     gameBoard.addEventListener('touchstart', (e) => {
         const touchObj = e.changedTouches[0];
         startX = touchObj.pageX;
@@ -249,35 +249,34 @@ function setUpTouchInput(grid, gameBoard, history){
 
     // checking for right movement
 
-    if ((elapsedTime <= allowedTime) && (distX <= distThreshold) && (Math.abs(distY < 100))){
+    if ((elapsedTime <= allowedTime) && (distX <= distThreshold) && (Math.abs(distY < 60))){
         handleTouchInput('right', grid, gameBoard, history)
         return
     }
 
     // checking for left movement
 
-    if ((elapsedTime <= allowedTime) && (-distX <= distThreshold) && (Math.abs(distY < 100))){
+    if ((elapsedTime <= allowedTime) && (-distX <= distThreshold) && (Math.abs(distY < 60))){
         handleTouchInput('left', grid, gameBoard, history)
         return
     }
 
     // checking for up movement
 
-    if ((elapsedTime <= allowedTime) && (-distY <= distThreshold) && (Math.abs(distX < 100))){
+    if ((elapsedTime <= allowedTime) && (-distY <= distThreshold) && (Math.abs(distX < 60))){
         handleTouchInput('up', grid, gameBoard, history)
         return
     }
 
     // checking for down movement
 
-    if ((elapsedTime <= allowedTime) && (distY <= distThreshold) && (Math.abs(distX < 100))){
+    if ((elapsedTime <= allowedTime) && (distY <= distThreshold) && (Math.abs(distX < 60))){
         handleTouchInput('down', grid, gameBoard, history)
         return
     }
 }
 
-async function handleTouchInput(direction, grid, gameBoard, history){
-    
+async function handleTouchInput(direction, grid, gameBoard, history){    
     switch (direction){
         case 'up' :
             if(!canMoveUp(grid)){
