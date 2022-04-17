@@ -114,7 +114,7 @@ nav{
     border-radius: 1vmin;
     top: calc((var(--y) * var(--cell-size)) + (var(--cell-gap) * (var(--y) + 1)));
     left: calc((var(--x) * var(--cell-size)) + (var(--cell-gap) * (var(--x) + 1)));
-    transition: all .2s ease-in-out;
+    transition: all .12s ease-in-out;
     animation : appear .2s ease-in forwards;
 }
 
