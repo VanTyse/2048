@@ -246,7 +246,7 @@ function setUpTouchInput(grid, gameBoard, history){
         distX = endX - startX
         distY = endY - startY
 
-        alert(`touch end happens.   DistX = ${distX}, DistY = ${distY}`)
+        alert(`touch end happens.   DistX = ${distX}, DistY = ${distY}, elapsedTime = ${elapsedTime}`)
 
         // checking for right movement
 
