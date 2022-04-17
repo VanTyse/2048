@@ -225,7 +225,7 @@ function setScore(grid){
 
 function setUpTouchInput(grid, gameBoard, history){
     let startX, startY, endX, endY, distX = 0, distY = 0, startTime, endTime, elapsedTime, 
-    allowedTime = 350, minDistThreshold = 150, maxDistThreshold = 300
+    allowedTime = 350, minDistThreshold = 150, maxDistThreshold = 350
 
     gameBoard.addEventListener('touchstart', (e) => {
         const touchObj = e.changedTouches[0];
@@ -248,30 +248,36 @@ function setUpTouchInput(grid, gameBoard, history){
         distX = endX - startX
         distY = endY - startY
 
+        alert(`touch end happens.   DistX = ${distX}, DistY = ${distY}, elapsedTime = ${elapsedTime}`)
+
         // checking for right movement
 
-        if ((elapsedTime <= allowedTime) && (distX <= maxDistThreshold && distX >= minDistThreshold) && (Math.abs(distY < 60))){
+        if ((elapsedTime <= allowedTime) && (distX <= maxDistThreshold && distX >= minDistThreshold) && (Math.abs(distY < 100))){
+            alert('right')
             handleTouchInput('right', grid, gameBoard, history)
             return
         }
 
         // checking for left movement
 
-        if ((elapsedTime <= allowedTime) && (-distX <= maxDistThreshold && -distX >= minDistThreshold) && (Math.abs(distY < 60))){
+        if ((elapsedTime <= allowedTime) && (-distX <= maxDistThreshold && -distX >= minDistThreshold) && (Math.abs(distY < 100))){
+            alert('left')
             handleTouchInput('left', grid, gameBoard, history)
             return
         }
 
         // checking for up movement
 
-        if ((elapsedTime <= allowedTime) && (-distY <= maxDistThreshold && -distY >= minDistThreshold) && (Math.abs(distX < 60))){
+        if ((elapsedTime <= allowedTime) && (-distY <= maxDistThreshold && -distY >= minDistThreshold) && (Math.abs(distX < 100))){
+            alert('up')
             handleTouchInput('up', grid, gameBoard, history)
             return
         }
 
         // checking for down movement
 
-        if ((elapsedTime <= allowedTime) && (distY <= maxDistThreshold && distY >= minDistThreshold) && (Math.abs(distX < 60))){
+        if ((elapsedTime <= allowedTime) && (distY <= maxDistThreshold && distY >= minDistThreshold) && (Math.abs(distX < 100))){
+            alert('down')
             handleTouchInput('down', grid, gameBoard, history)
             return
         }
