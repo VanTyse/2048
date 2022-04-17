@@ -231,11 +231,11 @@ function setUpTouchInput(grid, gameBoard, history){
         startY = touchObj.pageY;
         startTime = Number(new Date().getTime()); //at this point I'm not certain if getTime() returns a number
         e.preventDefault()
-    }, {once : true})
+    }, false)
 
     gameBoard.addEventListener('touchmove', (e) => {
         e.preventDefault()
-    }, {once : true})
+    }, false)
 
     gameBoard.addEventListener('touchend', (e) => {
         const touchObj = e.changedTouches[0];
@@ -245,7 +245,7 @@ function setUpTouchInput(grid, gameBoard, history){
         elapsedTime = endTime - startTime;
         distX = endX - startX
         distY = endY - startY
-    }, {once : true})
+    }, false)
 
     // checking for right movement
 
@@ -263,14 +263,14 @@ function setUpTouchInput(grid, gameBoard, history){
 
     // checking for up movement
 
-    if ((elapsedTime <= allowedTime) && (-distY <= distThreshold) && (Math.abs(distY < 100))){
+    if ((elapsedTime <= allowedTime) && (-distY <= distThreshold) && (Math.abs(distX < 100))){
         handleTouchInput('up', grid, gameBoard, history)
         return
     }
 
     // checking for down movement
 
-    if ((elapsedTime <= allowedTime) && (distY <= distThreshold) && (Math.abs(distY < 100))){
+    if ((elapsedTime <= allowedTime) && (distY <= distThreshold) && (Math.abs(distX < 100))){
         handleTouchInput('down', grid, gameBoard, history)
         return
     }
