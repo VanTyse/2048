@@ -225,7 +225,7 @@ function setScore(grid){
 
 function setUpTouchInput(grid, gameBoard, history){
     let startX, startY, endX, endY, distX = 0, distY = 0, startTime, endTime, elapsedTime, 
-    allowedTime = 350, minDistThreshold = 150, maxDistThreshold = 350
+    allowedTime = 350, minDistThreshold = 50, maxDistThreshold = 350
 
     gameBoard.addEventListener('touchstart', (e) => {
         const touchObj = e.changedTouches[0];
